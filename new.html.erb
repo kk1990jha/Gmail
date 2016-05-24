@@ -1,0 +1,30 @@
+<html>
+	<h3>Create New User</h3>
+	<%= form_for :patients do |f| %>
+		<table>
+			<tr>
+				<td>Name :</td>
+				<td><%= f.text_field :name ,:size => '10'%></td>
+			</tr>
+			<tr>
+				<td>Patient Id :</td>
+				<td><%= f.text_field :patient_id ,:size => '10'%></td>
+			</tr>
+			<tr>	
+				<td>Email ID :</td>
+				<td><%= f.text_field :email_id ,:size => '10'%></td>
+			</tr>
+			<tr>
+				<td>Mobile No :</td>
+				<td><%= f.text_field :mobile_no ,:size => '10' %></td>
+			</tr>
+			<tr>
+				<td>Present Adds :</td>
+			
+			
+				<td><%= f.text_area :pre_addrs %></td>
+			</tr>
+			
+		</table>
+	<% end %>
+</html>

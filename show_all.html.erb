@@ -1,0 +1,28 @@
+
+<table border=1>
+		<% cnt=0 %>
+	<tr>
+		<td>ID</td>
+		<td>Name</td>
+		<td>Patient_ID</td>
+		<td>Email_ID</td>
+		<td>Mobile_NO</td>
+		<td>Pre_addrs</td>
+	</tr>
+
+	<% for data in @show_all %>
+		<tr>
+			<td><%= cnt=cnt+1 %></td>
+			<td><%= data.name %></td>
+			<td><%= data.patient_id %></td>
+			<td><%= data.email_id %></td>
+			<td><%= data.mobile_no %></td>
+			<td><%= data.pre_addrs %></td>
+			<td><%= link_to "edit",{:controller => 'patients', :action => 'edit' ,:Id => data.patient_id} %></td>
+			<td><%= link_to "delete",{:controller => 'patients',:action => 'delete',:Id =>data.patient_id} %></td>
+		</tr>
+	<% end %> 
+	</table>
+
+<%= link_to "back", :controller => 'patients',:action => 'menu' %>
+

@@ -1,0 +1,29 @@
+
+<table border=1>
+		<% cnt=0 %>
+	<tr>
+		<td>ID</td>
+		<td>Name</td>
+		<td>Patient_ID</td>
+		<td>Email_ID</td>
+		<td>Mobile_NO</td>
+		<td>Pre_addrs</td>
+	</tr>
+<%if (! params[:patients].blank?  && !params[:patients][:id].blank?)%>
+		<% @show_data=Patient.find(:all,:conditions => ['patient_id=?',params[:patients][:id]]) %>
+<%end%>
+	<% if @show_data != nil %>
+	<% for data in @show_data %>
+		<tr>
+			<td><%= cnt=cnt+1 %></td>
+			<td><%= data.name %></td>
+			<td><%= data.patient_id %></td>
+			<td><%= data.email_id %></td>
+			<td><%= data.mobile_no %></td>
+			<td><%= data.pre_addrs %></td>
+		</tr>
+	<% end %> 
+	<% end %>
+</table>
+<%= link_to "back", :controller => 'patients',:action => 'menu' %>
+

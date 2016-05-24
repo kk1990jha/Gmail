@@ -1,0 +1,31 @@
+
+<h3>WELCOME TO EDIT</h3>
+<%= form_for :patients ,:url => {:action => 'update_one',:Id => @edit_data.patient_id} do |f| %>
+	<table>
+		<tr>
+			<td>Name :</td>
+			<td><%= f.text_field :name, :value => @edit_data.name, :size =>'10' %></td>
+		</tr>
+		<tr>
+			<td>Patient ID :</td>
+			<td><%= f.text_field :patient_id ,:value => @edit_data.patient_id, :size=>'10'%></td>
+		</tr>
+		<tr>
+			<td>Email ID :</td>
+			<td><%= f.text_field :email_id ,:value => @edit_data.email_id,:size =>'10' %></td>
+		</tr>
+		<tr>
+			<td>Mobile NO :</td>
+			<td><%= f.text_field :mobile_no ,:value => @edit_data.mobile_no, :size =>'10' %></td>
+		</tr>
+		<tr>
+			<td>Pre addrs :</td>
+			<td><%= f.text_area :pre_addrs ,:value => @edit_data.pre_addrs, :size =>'50'%></td>
+		</tr>
+		<tr>
+			<td><%= f.submit 'save_change' %></td>
+			<td><%= link_to "back" ,:controller => 'patients',:action => 'show_all' %></td>
+		</tr>
+	</table>
+	
+<% end %>

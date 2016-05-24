@@ -1,0 +1,105 @@
+
+<style>
+.center{
+    margin: auto;
+    width: 40%;
+    border: 3px solid red;
+}
+h3{
+	color: #000ff0;
+	text-decoration: underline;
+}
+p{
+	color: green;
+}
+div{
+	background-color: yellow;
+}
+</style>
+
+	<div class="center" align="center">
+	<h3> >>WELCOME IN MENU<< </h3>
+
+	
+		<%= form_for :patients ,:url => {:action => 'create'} do |f| %>
+			
+			<table align="center">
+				<tr>
+					<td><p><%= f.radio_button :patients,"newuser",:onchange =>"showuser()" %> New User</p></td>
+			
+					<td><p><%= f.radio_button :patients ,"existinguser",:onchange =>"showexist()" %> Existing User</p></td>
+				</tr>
+				<tr>	
+					<td><p><%= link_to "patient list", :controller => 'patients', :action => 'show_all' %></p></td>
+				</tr>
+			</table>
+			
+		
+	
+	
+	<div id='table' align="center">
+		<table>
+			<tr>
+				<td>Name :</td>
+				<td><%= f.text_field :name ,:size => '10'%></td>
+			</tr>
+			<tr>
+				<td>Patient Id :</td>
+				<td><%= f.text_field :patient_id ,:size => '10'%></td>
+			</tr>
+			<tr>	
+				<td>Email ID :</td>
+				<td><%= f.text_field :email_id ,:size => '10'%></td>
+			</tr>
+			<tr>
+				<td>Mobile No :</td>
+				<td><%= f.text_field :mobile_no ,:size => '10' %></td>
+			</tr>
+			<tr>
+				<td>Present Adds :</td>
+			
+			
+				<td><%= f.text_area :pre_addrs ,:size => '50' %></td>
+			</tr>
+			<tr>
+				<td><%= f.submit 'submit'%></td>
+			</tr>
+			
+		</table>
+	</div>
+	<div align="center" id='table1'>
+		patient ID :<%= f.text_field :id ,:size => '10'%>
+				<%= f.submit 'go'%>
+			
+	</div>	
+		
+	
+<% end %>
+
+</div>	
+<script>
+		window.onload = function()
+ 		{
+			$("table").style.display= 'none';
+			$("table1").style.display= 'none';
+		}
+		function showuser()
+		{
+			
+			$("table").style.display= 'block';
+			$("table1").style.display= 'none';
+		}
+
+	        
+		
+		function showexist()
+		{
+			$("table").style.display= 'none';
+		        $("table1").style.display= 'block';
+			
+		}
+
+			
+				
+</script>
+
